@@ -29,3 +29,34 @@ function speak(){
     var utterThis = newSpeechSynthesisUtterence(speak_data_1 + speak_data_2);
     synth.speak(utterThis);
 }
+function check(){
+    img = document.getElementById('captured_image');
+    classifier.Classfy(img, result);
+}
+
+function gotResult(error, results) {
+    if (error) {
+        console.error(error);
+      } else {
+    console.log(results);
+    document.getElementById("result_emotion_name").innerHTML = results[0].label;
+    prediction_1 = results[0].label;
+    speak();
+    if(results[0].label == "fist")
+    {
+        document.getElementById("updated_emoji").innerHtml = "&#&#9994;";
+    }
+    if(results[0].label == "amazing")
+    {
+        document.getElementById("updated_emoji").innerHTML = "&#128076;";
+    }
+    if(results[0].label == "best")
+    {
+        document.getElementById("updated_emoji").innerHTML = "&#128077;";
+    }
+    if(results[0].label == "victory")
+    {
+        document.getElementById("updated_emoji").innerHTML = "&#128406;";
+    }
+}
+}
