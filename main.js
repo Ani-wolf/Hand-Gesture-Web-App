@@ -31,7 +31,7 @@ function speak(){
 }
 function check(){
     img = document.getElementById('captured_image');
-    classifier.Classify(img, result);
+    classifier.classify(img, result);
 }
 
 function gotResult(error, results) {
